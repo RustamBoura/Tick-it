@@ -16,7 +16,7 @@ const Main = () => {
 
   useEffect(() => {
 
-    //    All Events
+    //    All Venues
     const getAllVenues = async () => {
       const response = await axios.get(`https://tick-it-api-production.up.railway.app/`)
       console.log(response)
@@ -26,22 +26,23 @@ const Main = () => {
 
     //    All Concerts
     const getAllConcerts = async () => {
-      const response = await axios.get(``)
-      setAllConcerts(response.data.results)
+      const response = await axios.get(`https://tick-it-api-production.up.railway.app/events/search/type/concert/`)
+      console.log(response)
+      setAllConcerts(response.data)
     }
     getAllConcerts()
 
     //    All Sports
     const getAllSports = async () => {
-      const response = await axios.get(``)
-      setAllSports(response.data.results)
+      const response = await axios.get(`https://tick-it-api-production.up.railway.app/events/search/type/sports/`)
+      setAllSports(response.data)
     }
     getAllSports()
 
     //    All Theatre
     const getAllTheatre = async () => {
-      const response = await axios.get(``)
-      setAllTheatre(response.data.results)
+      const response = await axios.get(`https://tick-it-api-production.up.railway.app/events/search/type/theatre/`)
+      setAllTheatre(response.data)
     }
     getAllTheatre()
 
@@ -59,31 +60,45 @@ const Main = () => {
           />
           <Route
             path='/:id'
-            element={<EventCard />}
+            element={<EventCard 
+              allVenues={allVenues}
+            />}
           />
           <Route
             path='/concerts'
-            element={<ConcertsEventList />}
+            element={<ConcertsEventList 
+              allConcerts={allConcerts}
+            />}
           />
           <Route
             path='/concerts/:id'
-            element={<EventCard />}
+            element={<EventCard 
+              allConcerts={allConcerts}
+            />}
           />
           <Route
             path='/sports'
-            element={<SportsEventsList />}
+            element={<SportsEventsList 
+              allSports={allSports}
+            />}
           />
           <Route
             path='/sports/:id'
-            element={<EventCard />}
+            element={<EventCard 
+              allSports={allSports}
+            />}
           />
           <Route
             path='/theatre'
-            element={<TheatreEventList />}
+            element={<TheatreEventList 
+              allTheatre={allTheatre}
+            />}
           />
           <Route
             path='/theatre/:id'
-            element={<EventCard />}
+            element={<EventCard 
+              allTheatre={allTheatre}
+            />}
           />
       </Routes>
   )
