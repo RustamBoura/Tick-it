@@ -1,16 +1,15 @@
 import { Route, Routes } from 'react-router-dom'
-import AllEventList from './AllEventList'
+import AllVenues from './AllVenues'
 import ConcertsEventList from './ConcertsEventList'
 import SportsEventsList from './SportsEventList'
 import TheatreEventList from './TheatreEventList'
 import EventCard from './EventCard'
-import DataContext from './DataContext'
 import { useState, useEffect } from 'react' 
 import axios from 'axios'
 
 
 const Main = () => {
-  const [allEvents, setAllEvents] = useState([])
+  const [allVenues, setAllVenues] = useState([])
   const [allConcerts, setAllConcerts] = useState([])
   const [allSports, setAllSports] = useState([])
   const [allTheatre, setAllTheatre] = useState([])
@@ -18,11 +17,12 @@ const Main = () => {
   useEffect(() => {
 
     //    All Events
-    const getAllEvents = async () => {
-      const response = await axios.get(``)
-      setAllEvents(response.data.results)
+    const getAllVenues = async () => {
+      const response = await axios.get(`https://tick-it-api-production.up.railway.app/`)
+      console.log(response)
+      setAllVenues(response.data)
     }
-    getAllEvents()
+    getAllVenues()
 
     //    All Concerts
     const getAllConcerts = async () => {
@@ -50,12 +50,12 @@ const Main = () => {
 
 
   return (
-    <DataContext.Provider value={{allEvents, setAllEvents, allConcerts, setAllConcerts, allSports, setAllSports, allTheatre, setAllTheatre}}>
       <Routes>
-        <>
           <Route
             path='/'
-            element={<AllEventList />}
+            element={<AllVenues 
+              allVenues={allVenues}
+            />}
           />
           <Route
             path='/:id'
@@ -85,9 +85,7 @@ const Main = () => {
             path='/theatre/:id'
             element={<EventCard />}
           />
-        </>
       </Routes>
-    </DataContext.Provider>
   )
 }
 

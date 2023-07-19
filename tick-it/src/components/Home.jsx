@@ -99,7 +99,7 @@
 import React, { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Link, Routes, Route } from 'react-router-dom';
-import AllEventList from './AllEventList';
+import AllVenues from './AllVenues';
 import ConcertsEventList from './ConcertsEventList';
 import SportsEventsList from './SportsEventList';
 import TheatreEventList from './TheatreEventList';
@@ -132,8 +132,8 @@ const Home = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item as={Link} to="/" eventKey="All Events">
-            All Events
+          <Dropdown.Item as={Link} to="/" eventKey="All Venues">
+            All Venues
           </Dropdown.Item>
           <Dropdown.Item as={Link} to="/concerts" eventKey="Concerts">
             Concerts
@@ -148,7 +148,6 @@ const Home = () => {
       </Dropdown>
 
       <Routes>
-        <Route exact path="/" element={<AllEventList />} />
         <Route path="/concerts" element={<ConcertsEventList />} />
         <Route path="/sports" element={<SportsEventsList />} />
         <Route path="/theatre" element={<TheatreEventList />} />
