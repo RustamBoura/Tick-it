@@ -7,14 +7,13 @@ const AllVenues = (props) => {
   console.log(props)
 
   return (
-    <div>
+    <div className='container'>
       <h1>Venues</h1>
-      <Home />
       <div className='gallery'>
         {
           props.allVenues.map((event) => (
-            <Card key={event.id} className='card' style={{ width: '16rem' }}>
-              <Card.Img variant="top" src={event.photo_url} />
+            <Card border='primary' key={event.id} className='card' style={{ width: '16rem', height: '225px' }}>
+              <Card.Img variant="top" style={{ maxHeight: '120px', objectFit: 'cover' }} src={event.photo_url} />
               <Card.Body>
                 <Card.Title>{event.name}</Card.Title>
                 <Card.Text>
