@@ -8,3 +8,11 @@
 .card {
   margin: auto;
 }
+
+Footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  text-align: center;
+}
