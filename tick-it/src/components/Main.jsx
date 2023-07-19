@@ -3,6 +3,7 @@ import AllEventList from './AllEventList'
 import ConcertsEventList from './ConcertsEventList'
 import SportsEventsList from './SportsEventList'
 import TheatreEventList from './TheatreEventList'
+import EventCard from './EventCard'
 import DataContext from './DataContext'
 import { useState, useEffect } from 'react' 
 import axios from 'axios'
@@ -57,16 +58,32 @@ const Main = () => {
             element={<AllEventList />}
           />
           <Route
+            path='/:id'
+            element={<EventCard />}
+          />
+          <Route
             path='/concerts'
             element={<ConcertsEventList />}
+          />
+          <Route
+            path='/concerts/:id'
+            element={<EventCard />}
           />
           <Route
             path='/sports'
             element={<SportsEventsList />}
           />
           <Route
+            path='/sports/:id'
+            element={<EventCard />}
+          />
+          <Route
             path='/theatre'
             element={<TheatreEventList />}
+          />
+          <Route
+            path='/theatre/:id'
+            element={<EventCard />}
           />
         </>
       </Routes>
