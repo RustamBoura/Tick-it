@@ -4,6 +4,8 @@ import ConcertsEventList from './ConcertsEventList'
 import SportsEventsList from './SportsEventList'
 import TheatreEventList from './TheatreEventList'
 import DataContext from './DataContext'
+import { useState, useEffect } from 'react' 
+import axios from 'axios'
 
 
 const Main = () => {
@@ -47,26 +49,28 @@ const Main = () => {
 
 
   return (
-    <Routes>
-      <DataContext.Provider value={{allEvents, setAllEvents, allConcerts, setAllConcerts, allSports, setAllSports, allTheatre, setAllTheatre}}>
-        <Route
-          path='/'
-          element={<AllEventList />}
-        />
-        <Route
-          path='/concerts'
-          element={<ConcertsEventList />}
-        />
-        <Route
-          path='/sports'
-          element={<SportsEventsList />}
-        />
-        <Route
-          path='/theatre'
-          element={<TheatreEventList />}
-        />
-      </DataContext.Provider>
-    </Routes>
+    <DataContext.Provider value={{allEvents, setAllEvents, allConcerts, setAllConcerts, allSports, setAllSports, allTheatre, setAllTheatre}}>
+      <Routes>
+        <>
+          <Route
+            path='/'
+            element={<AllEventList />}
+          />
+          <Route
+            path='/concerts'
+            element={<ConcertsEventList />}
+          />
+          <Route
+            path='/sports'
+            element={<SportsEventsList />}
+          />
+          <Route
+            path='/theatre'
+            element={<TheatreEventList />}
+          />
+        </>
+      </Routes>
+    </DataContext.Provider>
   )
 }
 
