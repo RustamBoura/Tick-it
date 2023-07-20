@@ -1,20 +1,36 @@
-import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import { useNavigate } from 'react-router-dom'
 
 
-const ConcertsEventList = () => {
+const ConcertsEventList = (props) => {
+  const navigate = useNavigate()
+  console.log(props)
+  const handleConcertClick = (id) => {
+    navigate(`/concerts/${id}`)
+  }
+
     return (
-      <div className='gallery'>
-        <Card className='card' style={{ width: '16rem' }}>
-          <Card.Img variant="top" src="https://images.unsplash.com/photo-1522158637959-30385a09e0da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" />
-          <Card.Body>
-            <Card.Title>Concert Title</Card.Title>
-            <Card.Text>
-              Date and Venue
-            </Card.Text>
-            <Button variant="primary">Add To Cart</Button>
-          </Card.Body>
-        </Card>
+      <div className='container'>
+        <h1>Concerts</h1>
+        <div className='gallery'>
+          {props.allConcerts.map((concert) => (
+            <Card
+              key={concert.id}
+              className='card'
+              style={{ width: '16rem', height: '235px' }}
+              onClick={() => handleConcertClick(concert.id)}
+            >
+              <Card.Img
+                variant='top'
+                style={{ maxHeight: '140px', objectFit: 'cover' }}
+                src={concert.photo_url}
+              />
+              <Card.Body className='card-body'>
+                <Card.Title>{concert.name}</Card.Title>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
       </div>
     )
   }
