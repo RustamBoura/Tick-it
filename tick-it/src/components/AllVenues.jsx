@@ -12,13 +12,10 @@ const AllVenues = (props) => {
       <div className='gallery'>
         {
           props.allVenues.map((event) => (
-            <Card border='primary' key={event.id} className='card' style={{ width: '16rem', height: '225px' }}>
-              <Card.Img variant="top" style={{ maxHeight: '120px', objectFit: 'cover' }} src={event.photo_url} />
+            <Card key={event.id} className='card' style={{ width: '16rem', height: '225px' }}>
+              <Card.Img variant="top" style={{ maxHeight: '140px', objectFit: 'cover' }} src={event.photo_url} />
               <Card.Body>
                 <Card.Title>{event.name}</Card.Title>
-                <Card.Text>
-                  Date and Venue
-                </Card.Text>
               </Card.Body>
             </Card>
           ))
