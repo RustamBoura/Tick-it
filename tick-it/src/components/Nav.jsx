@@ -23,6 +23,8 @@ const CustomNav = () => {
             {/* <Nav.Link href="#action1">Home</Nav.Link> */}
             <Link  to='/'>Home</Link>
             <Link  to='/concerts'>Concerts</Link>
+            <Link  to='/sports'>Sports</Link>
+            <Link  to='/theatre'>Theatre</Link>
             <Nav.Link href="#action2">My Tickets</Nav.Link>
             <Nav.Link href="#action2">Sign In</Nav.Link>
           </Nav>
