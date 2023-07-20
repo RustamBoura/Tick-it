@@ -9,6 +9,7 @@ import axios from 'axios'
 import ConcertDetail from './ConcertDetail'
 import SportsDetail from './SportsDetail'
 import TheatreDetail from './TheatreDetail'
+import EventDetails from './EventDetails'
 
 
 const Main = () => {
@@ -16,6 +17,7 @@ const Main = () => {
   const [allConcerts, setAllConcerts] = useState([])
   const [allSports, setAllSports] = useState([])
   const [allTheatre, setAllTheatre] = useState([])
+  const [allEvents, setAllEvents] = useState([])
 
   useEffect(() => {
 
@@ -26,6 +28,13 @@ const Main = () => {
       setAllVenues(response.data)
     }
     getAllVenues()
+
+    const getAllEvents = async () => {
+      const response = await axios.get(`https://tick-it-api-production.up.railway.app/events`)
+      console.log(response)
+      setAllEvents(response.data)
+    }
+    getAllEvents()
 
     //    All Concerts
     const getAllConcerts = async () => {
@@ -67,12 +76,12 @@ const Main = () => {
               allVenues={allVenues}
             />}
           />
-          {/* <Route
-            path='/events/:id'
-            element={<EventsListCard 
-              allVenues={allVenues}
+          {<Route
+            path='/venues/:id/:eventId'
+            element={<EventDetails 
+              allEvents={allEvents}
             />}
-          /> */}
+          />}
           <Route
             path='/concerts'
             element={<ConcertsEventList 
