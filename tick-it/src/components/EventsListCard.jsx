@@ -6,11 +6,17 @@ import { useState, useEffect } from 'react'
 
 
 
+
 const EventCard = (props) => {
   const [venue, setVenue] = useState({
     name: 'loading', 
     events: [],})
 
+  const navigate = useNavigate()
+  const handleEventClick = (eventId) => {
+    navigate(`/venues/${id}/${eventId}`)
+  }
+  
 
   const { id } = useParams()
   useEffect(() => {
@@ -40,7 +46,7 @@ const EventCard = (props) => {
             key={event.id}
             className='card'
             style={{ width: '16rem', height: '255px' }}
-            // onClick={() => handleVenueClick(event.id)}
+            onClick={() => handleEventClick(event.id)}
           >
             <Card.Img
               variant='top'

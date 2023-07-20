@@ -74,12 +74,12 @@ const Main = () => {
               allVenues={allVenues}
             />}
           />
-          {<Route
+          <Route
             path='/venues/:id/:eventId'
-            element={<EventDetails 
+            element={<EventDetails
               allEvents={allEvents}
             />}
-          />}
+          />
           <Route
             path='/concerts'
             element={<ConcertsEventList 
