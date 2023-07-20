@@ -5,9 +5,16 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import ConcertsEventList from './ConcertsEventList';
 import TheatreEventList from './TheatreEventList';
+import { useNavigate } from 'react-router-dom'
+
+const SportsEventList = (props) => {
+  const navigate = useNavigate()
+  console.log(props)
+  const handleSportsClick = (id) => {
+    navigate(`/sports/${id}`)
+  }
 
 
-const SportsEventList = () => {
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
@@ -71,18 +78,25 @@ const SportsEventList = () => {
         </div>
 
         <div className='gallery'>
-          <Card className='card' style={{ width: '16rem' }}>
-            <Card.Img variant="top" src="https://images.unsplash.com/photo-1522158637959-30385a09e0da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" />
-            <Card.Body>
-              <Card.Title>Sport Event Title</Card.Title>
-              <Card.Text>
-                Date and Venue
-              </Card.Text>
-              <Button variant="primary">Add To Cart</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        </div>
+            {props.allSports.map((sport) => (
+              <Card
+                key={sport.id}
+                className='card'
+                style={{ width: '16rem', height: '255px', textAlign: 'center' }}
+                onClick={() => handleSportClick(sport.id)}
+              >
+                <Card.Img
+                  variant='top'
+                  style={{ maxHeight: '140px', objectFit: 'cover' }}
+                  src={sport.photo_url}
+                />
+                <Card.Body className='card-body'>
+                  <Card.Title>{sport.name}</Card.Title>
+                </Card.Body>
+              </Card>
+            ))}
+          </div>
+      </div>
     )
   }
   
