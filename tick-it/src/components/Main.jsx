@@ -6,6 +6,8 @@ import TheatreEventList from './TheatreEventList'
 import EventsListCard from './EventsListCard'
 import { useState, useEffect } from 'react' 
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import EventDetail from './EventDetail'
 
 
 const Main = () => {
@@ -13,6 +15,17 @@ const Main = () => {
   const [allConcerts, setAllConcerts] = useState([])
   const [allSports, setAllSports] = useState([])
   const [allTheatre, setAllTheatre] = useState([])
+  const [eventDetails, setEventDetails] = useState('')
+  let { id } = useParams()
+
+  useEffect(() => {
+    const getEventDetails = async () => {
+      const response = await axios.get(`https://tick-it-api-production.up.railway.app/events/${id}`)
+      console.log(response)
+      setEventDetails(response.data)
+    }
+    getEventDetails()
+  })
 
   useEffect(() => {
 
@@ -78,8 +91,8 @@ const Main = () => {
           />
           <Route
             path='/concerts/:id'
-            element={<EventsListCard 
-              allConcerts={allConcerts}
+            element={<EventDetail 
+              eventDetails={eventDetails}
             />}
           />
           <Route
@@ -90,8 +103,8 @@ const Main = () => {
           />
           <Route
             path='/sports/:id'
-            element={<EventsListCard 
-              allSports={allSports}
+            element={<EventDetail 
+              eventDetails={eventDetails}
             />}
           />
           <Route
@@ -102,8 +115,8 @@ const Main = () => {
           />
           <Route
             path='/theatre/:id'
-            element={<EventsListCard 
-              allTheatre={allTheatre}
+            element={<EventDetail 
+              eventDetails={eventDetails}
             />}
           />
       </Routes>
