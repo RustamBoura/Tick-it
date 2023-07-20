@@ -4,7 +4,7 @@ import Comment from "./Comment";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Comments = () => {
+const Comments = (props) => {
   //   const comments = [
   //     { name: "Kevin Li", comment: "test comment" },
   //     { name: "Margaret", comment: "i love this event" },
@@ -18,7 +18,9 @@ const Comments = () => {
         let response = await axios.get(
           `https://tick-it-api-production.up.railway.app/comments`
         );
-        setComments(response.data);
+        setComments(
+          response.data.filter((comment) => comment.event_id == props.eventId)
+        );
       };
       getAllComments();
     } catch (e) {
@@ -32,12 +34,12 @@ const Comments = () => {
       <Container className="d-flex justify-content-center">
         <ListGroup className="mx-auto w-100">
           {comments.map((comment) => (
-            <Comment comment={comment} />
+            <Comment key={comment.comment} comment={comment} />
           ))}
         </ListGroup>
       </Container>
 
-      <AddComment />
+      <AddComment eventId={props.eventId} />
     </Container>
   );
 };
