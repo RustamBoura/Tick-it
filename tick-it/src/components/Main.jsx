@@ -3,7 +3,7 @@ import AllVenues from './AllVenues'
 import ConcertsEventList from './ConcertsEventList'
 import SportsEventsList from './SportsEventList'
 import TheatreEventList from './TheatreEventList'
-import EventCard from './EventCard'
+import EventsListCard from './EventsListCard'
 import { useState, useEffect } from 'react' 
 import axios from 'axios'
 
@@ -59,11 +59,17 @@ const Main = () => {
             />}
           />
           <Route
-            path='/:id'
-            element={<EventCard 
+            path='/venues/:id'
+            element={<EventsListCard 
               allVenues={allVenues}
             />}
           />
+          {/* <Route
+            path='/events/:id'
+            element={<EventsListCard 
+              allVenues={allVenues}
+            />}
+          /> */}
           <Route
             path='/concerts'
             element={<ConcertsEventList 
@@ -72,7 +78,7 @@ const Main = () => {
           />
           <Route
             path='/concerts/:id'
-            element={<EventCard 
+            element={<EventsListCard 
               allConcerts={allConcerts}
             />}
           />
@@ -84,7 +90,7 @@ const Main = () => {
           />
           <Route
             path='/sports/:id'
-            element={<EventCard 
+            element={<EventsListCard 
               allSports={allSports}
             />}
           />
@@ -96,7 +102,7 @@ const Main = () => {
           />
           <Route
             path='/theatre/:id'
-            element={<EventCard 
+            element={<EventsListCard 
               allTheatre={allTheatre}
             />}
           />
