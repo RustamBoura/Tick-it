@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 
 const AllVenues = (props) => {
+
   const navigate = useNavigate()
 
   const handleVenueClick = (id) => {
@@ -16,7 +17,7 @@ const AllVenues = (props) => {
           <Card
             key={venue.id}
             className='card'
-            style={{ width: '16rem', height: '225px' }}
+            style={{ width: '16rem', height: '215px' }}
             onClick={() => handleVenueClick(venue.id)}
           >
             <Card.Img
@@ -24,7 +25,7 @@ const AllVenues = (props) => {
               style={{ maxHeight: '140px', objectFit: 'cover' }}
               src={venue.photo_url}
             />
-            <Card.Body>
+            <Card.Body className='card-body'>
               <Card.Title>{venue.name}</Card.Title>
             </Card.Body>
           </Card>

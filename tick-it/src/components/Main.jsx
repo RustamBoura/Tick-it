@@ -22,7 +22,6 @@ const Main = () => {
     //    All Venues
     const getAllVenues = async () => {
       const response = await axios.get(`https://tick-it-api-production.up.railway.app/`)
-      console.log(response)
       setAllVenues(response.data)
     }
     getAllVenues()
@@ -30,7 +29,6 @@ const Main = () => {
     //    All Concerts
     const getAllConcerts = async () => {
       const response = await axios.get(`https://tick-it-api-production.up.railway.app/events/search/type/concert/`)
-      console.log(response)
       setAllConcerts(response.data)
     }
     getAllConcerts()
