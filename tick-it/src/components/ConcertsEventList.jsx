@@ -5,9 +5,16 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import SportsEventsList from './SportsEventList';
 import TheatreEventList from './TheatreEventList';
+import { useNavigate } from 'react-router-dom'
 
 
-const ConcertsEventList = () => {
+const ConcertsEventList = (props) => {
+  const navigate = useNavigate()
+  console.log(props)
+  const handleConcertClick = (id) => {
+    navigate(`/concerts/${id}`)
+  }
+
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
 
@@ -29,59 +36,70 @@ const ConcertsEventList = () => {
   
     return (
       <div>
-        <div className='Dropdown'>
-          <Dropdown show={show} onToggle={handleToggle} onSelect={handleSelect} >
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {selectedItem}
-          </Dropdown.Toggle>
+        
+        <div className='container'>
+          <h1>Concerts</h1>
+          <div className='Dropdown'>
+            <Dropdown show={show} onToggle={handleToggle} onSelect={handleSelect} >
+            <Dropdown.Toggle className='sort-button' variant="primary" id="dropdown-basic">
+              Sort by: 
+            </Dropdown.Toggle>
 
-          <Dropdown.Menu>
-            <Dropdown.Item eventKey="All Venues">
-              <NavLink to='/'>
-              All Venues
+            <Dropdown.Menu>
+              <Dropdown.Item eventKey="All Venues">
+                <NavLink to='/'>
+                All Venues
+                </NavLink>
+              </Dropdown.Item>
+              
+              <Dropdown.Item eventKey="Concerts">
+              <NavLink to='/concerts' >
+                Concerts
               </NavLink>
-            </Dropdown.Item>
-            
-            <Dropdown.Item eventKey="Concerts">
-            <NavLink to='/concerts' >
-              Concerts
-            </NavLink>
-            </Dropdown.Item>
-            
-            <Dropdown.Item eventKey="Sports">
-            <NavLink to='/sports' >
-              Sports
-            </NavLink>
-            </Dropdown.Item>
-            <Dropdown.Item eventKey="Theatre">
-            <NavLink to='/theatre' >
-              Theatre
-            </NavLink>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      
+              </Dropdown.Item>
+              
+              <Dropdown.Item eventKey="Sports">
+              <NavLink to='/sports' >
+                Sports
+              </NavLink>
+              </Dropdown.Item>
+              <Dropdown.Item eventKey="Theatre">
+              <NavLink to='/theatre' >
+                Theatre
+              </NavLink>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        
 
-        <Routes>
-          <Route path="/concerts" element={<ConcertsEventList />} />
-          <Route path="/sports" element={<SportsEventsList />} />
-          <Route path="/theatre" element={<TheatreEventList />} />
-        </Routes>
+          <Routes>
+            <Route path="/concerts" element={<ConcertsEventList />} />
+            <Route path="/sports" element={<SportsEventsList />} />
+            <Route path="/theatre" element={<TheatreEventList />} />
+          </Routes>
 
+          </div>
+          <div className='gallery'>
+            {props.allConcerts.map((concert) => (
+              <Card
+                key={concert.id}
+                className='card'
+                style={{ width: '16rem', height: '235px' }}
+                onClick={() => handleConcertClick(concert.id)}
+              >
+                <Card.Img
+                  variant='top'
+                  style={{ maxHeight: '140px', objectFit: 'cover' }}
+                  src={concert.photo_url}
+                />
+                <Card.Body className='card-body'>
+                  <Card.Title>{concert.name}</Card.Title>
+                </Card.Body>
+              </Card>
+            ))}
+          </div>
         </div>
-        <div className='gallery'>
-          <Card className='card' style={{ width: '16rem' }}>
-            <Card.Img variant="top" src="https://images.unsplash.com/photo-1522158637959-30385a09e0da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" />
-            <Card.Body>
-              <Card.Title>Concert Title</Card.Title>
-              <Card.Text>
-                Date and Venue
-              </Card.Text>
-              <Button variant="primary">Add To Cart</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        </div>
+      </div>
     )
   }
   
