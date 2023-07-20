@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
+
+
 const EventCard = (props) => {
   const [venue, setVenue] = useState({
     name: 'loading', 
