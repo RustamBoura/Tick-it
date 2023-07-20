@@ -1,16 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 
-const AllVenues = (props) => {
-  const navigate = useNavigate()
-
-  const handleVenueClick = (id) => {
-    navigate(`/venues/${id}`)
-  }
-
+const EventCard = (props) => {
   return (
     <div className='container'>
-      <h1>Venues</h1>
+      <h1>Events at ...</h1>
       <div className='gallery'>
         {props.allVenues.map((venue) => (
           <Card
@@ -34,4 +28,4 @@ const AllVenues = (props) => {
   )
 }
 
-export default AllVenues
+export default EventCard
