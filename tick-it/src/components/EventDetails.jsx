@@ -19,7 +19,7 @@ const EventDetails = (props) => {
         <Card.Img variant="top" src={event?.photo_url} />
         <Card.Body>
           <Card.Text>
-            <strong>Venue: </strong> {event?.venue}
+            <strong>Venue: </strong> {event?.venue_name}
             <br></br>
             <strong>Date: </strong> {event?.date}
             <br></br>
