@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const EventCard = (props) => {
   const { id } = useParams();
   const [venue, setVenue] = useState();
-
+  
   const navigate = useNavigate();
   const handleEventClick = (eventId) => {
     navigate(`/events/${eventId}`);
@@ -17,6 +17,10 @@ const EventCard = (props) => {
     const selectedVenue = props.allVenues.find((venue) => venue.id == id);
     setVenue(selectedVenue);
   }, [props]);
+
+  const handleAddToMyTickets = (eventId) => {
+    props.setSelectedEvents((prevSelectedEvents) => [...prevSelectedEvents, eventId]);
+  };
 
   return venue ? (
     <div className="container">
@@ -45,6 +49,7 @@ const EventCard = (props) => {
             />
             <Card.Body>
               <Card.Title>{event.name}</Card.Title>
+              <Button onClick={() => handleAddToMyTickets(event.id)}>Add to My Tickets</Button>
             </Card.Body>
           </Card>
         ))}
