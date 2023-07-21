@@ -13,16 +13,16 @@ const EventCard = (props) => {
     events: [],})
 
   const navigate = useNavigate()
-  const handleEventClick = (eventId) => {
-    navigate(`/venues/${id}/${eventId}`)
+  const handleEventClick = (id) => {
+    navigate(`/events/${id}`)
   }
   
 
   const { id } = useParams()
   useEffect(() => {
     
-    const selectedVenue = props.allVenues.find((venue) => venue.id == id)
-    setVenue(selectedVenue)
+    const selectedEvent = props.allEvents.find((event) => event.id == id)
+    setEvent(selectedEvent)
   }, [venue])
 
   return (

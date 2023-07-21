@@ -11,8 +11,14 @@ const SportsEventList = (props) => {
   const navigate = useNavigate()
   console.log(props)
   const handleSportsClick = (id) => {
-    navigate(`/sports/${id}`)
+    navigate(`/events/${id}`)
   }
+
+  const { id } = useParams();
+  useEffect(() => {
+    const selectedEvent = props.allEvents.find((event) => event.id == id);
+    setEvent(selectedEvent);
+  }, [event]);
 
 
   const [show, setShow] = useState(false);

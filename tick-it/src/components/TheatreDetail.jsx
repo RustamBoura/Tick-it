@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 
 const TheatreDetail = (props) => {
     let { id } = useParams()
-    let selectedEvent = props.allTheatre[id]
+    let selectedEvent = props.allEvents[id]
    return (
     <section className="event-details">
         <img src={selectedEvent.photo_url}/>
@@ -10,6 +10,7 @@ const TheatreDetail = (props) => {
         <p><strong>Date: </strong>{selectedEvent.date}</p>
         <p><strong>Time: </strong>{selectedEvent.time}</p>
         <p><strong>Venue: </strong>{selectedEvent.venue_name}</p>
+        <Comments id={id} />
     </section>
    ) 
 }
