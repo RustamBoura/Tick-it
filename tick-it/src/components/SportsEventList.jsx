@@ -5,11 +5,12 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { NavLink, Routes, Route } from "react-router-dom";
 import ConcertsEventList from "./ConcertsEventList";
 import TheatreEventList from "./TheatreEventList";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 const SportsEventList = (props) => {
   const navigate = useNavigate();
+  const [event, setEvent] = useState();
   const handleSportsClick = (id) => {
     navigate(`/events/${id}`)
   }
@@ -84,7 +85,7 @@ const SportsEventList = (props) => {
             key={sport.id}
             className="card"
             style={{ width: "16rem", height: "255px", textAlign: "center" }}
-            onClick={() => handleSportClick(sport.id)}
+            onClick={() => handleSportsClick(sport.id)}
           >
             <Card.Img
               variant="top"

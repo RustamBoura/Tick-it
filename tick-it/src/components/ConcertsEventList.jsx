@@ -5,10 +5,11 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { NavLink, Routes, Route } from "react-router-dom";
 import SportsEventsList from "./SportsEventList";
 import TheatreEventList from "./TheatreEventList";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ConcertsEventList = (props) => {
   const navigate = useNavigate();
+  const [event, setEvent] = useState();
   const handleConcertClick = (id) => {
     navigate(`/events/${id}`);
   };
