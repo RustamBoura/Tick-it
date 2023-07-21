@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 const SportsEventList = (props) => {
   const navigate = useNavigate();
-  const handleSportsClick = (id) => {
+  const handleSportClick = (id) => {
     navigate(`/events/${id}`);
   };
 
