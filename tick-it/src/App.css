@@ -20,7 +20,15 @@
 .card-body {
   margin-top: auto;
 }
-
+.nav-link {
+  margin-left: 20px;
+}
+.home {
+  margin-left: 50px;
+}
+.extra {
+  margin-left: 90px;
+}
 Footer {
   position: absolute;
   bottom: 0;
