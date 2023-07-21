@@ -37,11 +37,12 @@ const TheatreEventList = (props) => {
     // Handle the selected eventKey
   };
   return (
-    <div>
+    <div className="container">
+      <h1>Theatre</h1>
       <div className="Dropdown">
         <Dropdown show={show} onToggle={handleToggle} onSelect={handleSelect}>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {selectedItem}
+          <Dropdown.Toggle variant="primary" id="dropdown-basic">
+            Sort by
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
@@ -50,24 +51,24 @@ const TheatreEventList = (props) => {
             </Dropdown.Item>
 
             <Dropdown.Item eventKey="Concerts">
-              <NavLink to="/concerts">Concerts</NavLink>
+              <NavLink to="/events/concerts">Concerts</NavLink>
             </Dropdown.Item>
 
             <Dropdown.Item eventKey="Sports">
-              <NavLink to="/sports">Sports</NavLink>
+              <NavLink to="/events/sports">Sports</NavLink>
             </Dropdown.Item>
 
             <Dropdown.Item eventKey="Theatre">
-              <NavLink to="/theatre">Theatre</NavLink>
+              <NavLink to="/events/theatre">Theatre</NavLink>
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
-        <Routes>
+        {/* <Routes>
           <Route path="/concerts" element={<ConcertsEventList />} />
           <Route path="/sports" element={<SportsEventsList />} />
           <Route path="/theatre" element={<TheatreEventList />} />
-        </Routes>
+        </Routes> */}
       </div>
 
       <div className="gallery">

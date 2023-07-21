@@ -56,30 +56,30 @@ const ConcertsEventList = (props) => {
               </Dropdown.Item>
 
               <Dropdown.Item eventKey="Concerts">
-                <NavLink to="/concerts">Concerts</NavLink>
+                <NavLink to="/events/concerts">Concerts</NavLink>
               </Dropdown.Item>
 
               <Dropdown.Item eventKey="Sports">
-                <NavLink to="/sports">Sports</NavLink>
+                <NavLink to="/events/sports">Sports</NavLink>
               </Dropdown.Item>
               <Dropdown.Item eventKey="Theatre">
-                <NavLink to="/theatre">Theatre</NavLink>
+                <NavLink to="/events/theatre">Theatre</NavLink>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
 
-          <Routes>
+          {/* <Routes>
             <Route path="/concerts" element={<ConcertsEventList />} />
             <Route path="/sports" element={<SportsEventsList />} />
             <Route path="/theatre" element={<TheatreEventList />} />
-          </Routes>
+          </Routes> */}
         </div>
         <div className="gallery">
           {concerts.map((concert) => (
             <Card
               key={concert.id}
               className="card"
-              style={{ width: "16rem", height: "235px" }}
+              style={{ width: "17rem", height: "270px" }}
               onClick={() => handleConcertClick(concert.id)}
             >
               <Card.Img
@@ -89,6 +89,7 @@ const ConcertsEventList = (props) => {
               />
               <Card.Body className="card-body">
                 <Card.Title>{concert.name}</Card.Title>
+                <Card.Text>{concert.date}</Card.Text>
               </Card.Body>
             </Card>
           ))}
