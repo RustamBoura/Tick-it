@@ -10,7 +10,7 @@ const ConcertDetails = (props) => {
   const { id } = useParams()
   useEffect(() => {
     
-    const selectedEvent = props.allConcerts.find((event) => event.id == id)
+    const selectedEvent = props.allEvents.find((event) => event.id == id)
     setEvent(selectedEvent)
   }, [event])
 
@@ -33,6 +33,7 @@ const ConcertDetails = (props) => {
           </Card.Text>
         </Card.Body>
       </Card>
+      <Comments id={id} />
     </div>
   )
 }

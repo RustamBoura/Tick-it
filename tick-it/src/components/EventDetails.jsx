@@ -6,9 +6,9 @@ import Comments from "./Comments";
 const EventDetails = (props) => {
   const [event, setEvent] = useState({});
 
-  const { eventId } = useParams();
+  const { id } = useParams();
   useEffect(() => {
-    const selectedEvent = props.allEvents.find((event) => event.id == eventId);
+    const selectedEvent = props.allEvents.find((event) => event.id == id);
     setEvent(selectedEvent);
   }, [props]);
 
@@ -31,7 +31,7 @@ const EventDetails = (props) => {
           </Card.Text>
         </Card.Body>
       </Card>
-      <Comments eventId={eventId} />
+      <Comments id={id} />
     </div>
   );
 };

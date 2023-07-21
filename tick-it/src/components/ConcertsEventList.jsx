@@ -13,6 +13,12 @@ const ConcertsEventList = (props) => {
     navigate(`/events/${id}`);
   };
 
+  const { id } = useParams();
+  useEffect(() => {
+    const selectedEvent = props.allEvents.find((event) => event.id == id);
+    setEvent(selectedEvent);
+  }, [event]);
+
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
   const [concerts, setConcerts] = useState([]);

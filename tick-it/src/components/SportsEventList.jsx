@@ -11,8 +11,15 @@ import { useEffect } from "react";
 const SportsEventList = (props) => {
   const navigate = useNavigate();
   const handleSportsClick = (id) => {
-    navigate(`/events/${id}`);
-  };
+    navigate(`/events/${id}`)
+  }
+
+  const { id } = useParams();
+  useEffect(() => {
+    const selectedEvent = props.allEvents.find((event) => event.id == id);
+    setEvent(selectedEvent);
+  }, [event]);
+
 
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
