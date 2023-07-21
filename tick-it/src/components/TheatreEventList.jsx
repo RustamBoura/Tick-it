@@ -37,11 +37,12 @@ const TheatreEventList = (props) => {
     // Handle the selected eventKey
   };
   return (
-    <div>
+    <div className="container">
+      <h1>Theatre</h1>
       <div className="Dropdown">
         <Dropdown show={show} onToggle={handleToggle} onSelect={handleSelect}>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {selectedItem}
+          <Dropdown.Toggle variant="primary" id="dropdown-basic">
+            Sort by
           </Dropdown.Toggle>
 
           <Dropdown.Menu>

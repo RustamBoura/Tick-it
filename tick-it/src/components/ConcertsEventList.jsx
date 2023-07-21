@@ -79,7 +79,7 @@ const ConcertsEventList = (props) => {
             <Card
               key={concert.id}
               className="card"
-              style={{ width: "16rem", height: "235px" }}
+              style={{ width: "17rem", height: "270px" }}
               onClick={() => handleConcertClick(concert.id)}
             >
               <Card.Img
@@ -89,6 +89,7 @@ const ConcertsEventList = (props) => {
               />
               <Card.Body className="card-body">
                 <Card.Title>{concert.name}</Card.Title>
+                <Card.Text>{concert.date}</Card.Text>
               </Card.Body>
             </Card>
           ))}
