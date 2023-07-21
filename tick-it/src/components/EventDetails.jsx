@@ -10,7 +10,7 @@ const EventDetails = (props) => {
   useEffect(() => {
     const selectedEvent = props.allEvents.find((event) => event.id == eventId);
     setEvent(selectedEvent);
-  }, [event]);
+  }, [props]);
 
   return (
     <div className="container">

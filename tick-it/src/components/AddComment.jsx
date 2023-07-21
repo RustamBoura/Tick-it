@@ -20,22 +20,27 @@ const AddComment = (props) => {
   };
 
   const createComment = async () => {
-    const authHeader = `Basic ${btoa(`kevblah:test`)}`;
-    let requestBody = {
-      name: formState.name,
-      comment: formState.comment,
-      event_id: props.eventId,
-    };
-    let newComment = await axios.post(
-      "https://tick-it-api-production.up.railway.app/comments",
-      requestBody,
-      {
-        headers: {
-          Authorization: authHeader,
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    try {
+      const authHeader = `Basic ${btoa(`kevblah:test`)}`;
+      let requestBody = {
+        name: formState.name,
+        comment: formState.comment,
+        event_id: props.eventId,
+      };
+      let newComment = await axios.post(
+        "https://tick-it-api-production.up.railway.app/comments",
+        requestBody,
+        {
+          headers: {
+            Authorization: authHeader,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      window.location.reload(false);
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <Container className="pt-3" style={{ maxWidth: "400px" }}>
