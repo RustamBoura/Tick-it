@@ -16,7 +16,11 @@ const EventDetails = (props) => {
     <div className="container">
       <h1>Events at {event?.name}</h1>
       <Card>
-        <Card.Img variant="top" src={event?.photo_url} />
+        <Card.Img
+          variant="top"
+          src={event?.photo_url}
+          className="w-50 mx-auto"
+        />
         <Card.Body>
           <Card.Text>
             <strong>Venue: </strong> {event?.venue_name}
