@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { NavLink, Routes, Route } from "react-router-dom";
 import SportsEventsList from "./SportsEventList";
@@ -9,13 +9,17 @@ import { useNavigate } from "react-router-dom";
 
 const ConcertsEventList = (props) => {
   const navigate = useNavigate();
-  console.log(props);
   const handleConcertClick = (id) => {
-    navigate(`/concerts/${id}`);
+    navigate(`/events/${id}`);
   };
 
   const [show, setShow] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
+  const [concerts, setConcerts] = useState([]);
+
+  useEffect(() => {
+    setConcerts(props.allEvents.filter((event) => event.type == "Concert"));
+  }, [props]);
 
   const handleToggle = (isOpen, event, metadata) => {
     if (metadata?.source === "select") {
@@ -30,7 +34,6 @@ const ConcertsEventList = (props) => {
     setShow(false);
     setSelectedItem(eventKey);
     // Handle the selected eventKey
-    console.log("Selected:", eventKey);
   };
 
   return (
@@ -72,7 +75,7 @@ const ConcertsEventList = (props) => {
           </Routes>
         </div>
         <div className="gallery">
-          {props.allConcerts?.map((concert) => (
+          {concerts.map((concert) => (
             <Card
               key={concert.id}
               className="card"

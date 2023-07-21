@@ -16,7 +16,6 @@ const EventCard = (props) => {
     setVenue(props.allVenues.filter((venue) => venue.id == id));
     const selectedVenue = props.allVenues.find((venue) => venue.id == id);
     setVenue(selectedVenue);
-    console.log(props);
   }, [props]);
 
   return venue ? (
