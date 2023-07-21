@@ -10,6 +10,8 @@ import ConcertDetails from "./ConcertDetails";
 import SportsDetail from "./SportsDetail";
 import TheatreDetail from "./TheatreDetail";
 import EventDetails from "./EventDetails";
+import SignIn from './SignIn'
+import MyTickets from './MyTickets'
 
 const Main = () => {
   const [allVenues, setAllVenues] = useState([]);
@@ -84,6 +86,10 @@ const Main = () => {
         path="/theatre/:id/:eventId"
         element={<TheatreDetail allEvents={allEvents} />}
       /> */}
+      <Route path='/signin' element={<SignIn />} />
+
+      <Route path='/tickets' element={<MyTickets />} />
+
     </Routes>
   );
 };

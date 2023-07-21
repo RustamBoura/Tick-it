@@ -34,8 +34,12 @@ const CustomNav = () => {
               <NavLink as={Link} to="/events/theatre">
                 Theatre
               </NavLink>
-              <Nav.Link href="#action2">My Tickets</Nav.Link>
-              <Nav.Link href="#action2">Sign In</Nav.Link>
+              <Nav.Link as={Link} to="/tickets">
+                My Tickets
+              </Nav.Link>
+              <Nav.Link as={Link} to="/signin">
+                Sign In
+              </Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control
