@@ -26,7 +26,7 @@ const Comments = (props) => {
     } catch (e) {
       console.log(e);
     }
-  }, []);
+  }, [comments]);
 
   return (
     <Container className=" mx-auto" style={{ maxWidth: "600px" }}>
@@ -39,7 +39,11 @@ const Comments = (props) => {
         </ListGroup>
       </Container>
 
-      <AddComment eventId={props.eventId} />
+      <AddComment
+        eventId={props.eventId}
+        comments={comments}
+        setComments={setComments}
+      />
     </Container>
   );
 };
