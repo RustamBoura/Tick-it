@@ -9,7 +9,7 @@ const TheatreDetail = (props) => {
         <h3>{selectedEvent.name}</h3>
         <p><strong>Date: </strong>{selectedEvent.date}</p>
         <p><strong>Time: </strong>{selectedEvent.time}</p>
-        <p><strong>Venue: </strong>{selectedEvent.venue}</p>
+        <p><strong>Venue: </strong>{selectedEvent.venue_name}</p>
     </section>
    ) 
 }
