@@ -9,9 +9,9 @@ import { NavLink } from "react-bootstrap";
 const CustomNav = () => {
   return (
     <div>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="md" className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand as={Link} to="/">
+          <Navbar.Brand className="nav-logo" as={Link} to="/">
             TickitGuru
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -22,7 +22,7 @@ const CustomNav = () => {
               navbarScroll
             >
               {/* <Nav.Link href="#action1">Home</Nav.Link> */}
-              <NavLink as={Link} to="/">
+              <NavLink className="home" as={Link} to="/">
                 Home
               </NavLink>
               <NavLink as={Link} to="/events/concerts">
@@ -34,14 +34,14 @@ const CustomNav = () => {
               <NavLink as={Link} to="/events/theatre">
                 Theatre
               </NavLink>
-              <Nav.Link as={Link} to="/tickets">
+              <Nav.Link className="extra" as={Link} to="/tickets">
                 My Tickets
               </Nav.Link>
               <Nav.Link as={Link} to="/signin">
                 Sign In
               </Nav.Link>
             </Nav>
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search"
@@ -49,7 +49,7 @@ const CustomNav = () => {
                 aria-label="Search"
               />
               <Button variant="outline-success">Search</Button>
-            </Form>
+            </Form> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
