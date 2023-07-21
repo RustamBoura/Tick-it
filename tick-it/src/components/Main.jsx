@@ -44,7 +44,7 @@ const Main = () => {
       />
       {/* Event Details Page */}
       <Route
-        path="/events/:eventId"
+        path="/events/:id"
         element={<EventDetails allEvents={allEvents} />}
       />
       {/* Concert Events Page */}

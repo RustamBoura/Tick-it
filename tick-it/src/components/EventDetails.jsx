@@ -14,7 +14,7 @@ const EventDetails = (props) => {
 
   return (
     <div className="container">
-      <h1>Events at {event?.name}</h1>
+      <h1>{event?.name}</h1>
       <Card>
         <Card.Img
           variant="top"
