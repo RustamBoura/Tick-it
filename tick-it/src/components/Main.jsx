@@ -16,7 +16,6 @@ const Main = () => {
   const [allEvents, setAllEvents] = useState([]);
 
   useEffect(() => {
-    console.log("main.jsx useeffect running");
     const getAllVenues = async () => {
       const response = await axios.get(
         `https://tick-it-api-production.up.railway.app/`
@@ -43,22 +42,24 @@ const Main = () => {
         path="/venues/:id"
         element={<EventsListCard allVenues={allVenues} allEvents={allEvents} />}
       />
+      {/* Event Details Page */}
       <Route
         path="/events/:eventId"
         element={<EventDetails allEvents={allEvents} />}
       />
+      {/* Concert Events Page */}
       <Route
         path="/concerts"
         element={<ConcertsEventList allEvents={allEvents} />}
       />
-      <Route
+      {/* <Route
         path="/concerts/:id"
         element={<ConcertDetails allEvents={allEvents} />}
-      />
-      <Route
+      /> */}
+      {/* <Route
         path="/concerts/:id/:eventId"
         element={<EventDetails allEvents={allEvents} />}
-      />
+      /> */}
       <Route
         path="/sports"
         element={<SportsEventsList allEvents={allEvents} />}
