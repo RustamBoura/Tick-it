@@ -37,7 +37,8 @@ const AddComment = (props) => {
           },
         }
       );
-      window.location.reload(false);
+      props.setComments([...props.comments, newComment.data]);
+      // window.location.reload(false);
     } catch (e) {
       console.log(e);
     }
