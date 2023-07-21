@@ -23,13 +23,13 @@ const CustomNav = () => {
               <NavLink as={Link} to="/">
                 Home
               </NavLink>
-              <NavLink as={Link} to="/concerts">
+              <NavLink as={Link} to="/events/concerts">
                 Concerts
               </NavLink>
-              <NavLink as={Link} to="/sports">
+              <NavLink as={Link} to="/events/sports">
                 Sports
               </NavLink>
-              <NavLink as={Link} to="/theatre">
+              <NavLink as={Link} to="/events/theatre">
                 Theatre
               </NavLink>
               <Nav.Link href="#action2">My Tickets</Nav.Link>

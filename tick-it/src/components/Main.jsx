@@ -49,7 +49,7 @@ const Main = () => {
       />
       {/* Concert Events Page */}
       <Route
-        path="/concerts"
+        path="/events/concerts"
         element={<ConcertsEventList allEvents={allEvents} />}
       />
       {/* <Route
@@ -61,29 +61,29 @@ const Main = () => {
         element={<EventDetails allEvents={allEvents} />}
       /> */}
       <Route
-        path="/sports"
+        path="/events/sports"
         element={<SportsEventsList allEvents={allEvents} />}
       />
-      <Route
+      {/* <Route
         path="/sports/:id"
         element={<SportsDetail allEvents={allEvents} />}
       />
       <Route
         path="/sports/:id/:eventId"
         element={<EventDetails allEvents={allEvents} />}
-      />
+      /> */}
       <Route
-        path="/theatre"
+        path="/events/theatre"
         element={<TheatreEventList allEvents={allEvents} />}
       />
-      <Route
+      {/* <Route
         path="/theatre/:id"
         element={<TheatreDetail allEvents={allEvents} />}
       />
       <Route
         path="/theatre/:id/:eventId"
         element={<TheatreDetail allEvents={allEvents} />}
-      />
+      /> */}
     </Routes>
   );
 };
